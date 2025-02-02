@@ -1,0 +1,52 @@
+.navbar {
+  background-color: #b61414;
+  padding: 15px;
+  font-size: larger;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar .nav-links li {
+  display: inline;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 4px; /* Add this to make the link look like a button */
+}
+
+.navbar .nav-links a:hover {
+  background-color: #575757;
+}
+
+.navbar .nav-links button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links button:hover {
+  background-color: #575757;
+}
