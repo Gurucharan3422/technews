@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext, AuthProvider } from './Components/authContext';  // Ensure correct import path
 import Navbar from "./Components/Navbar";
 import Home from "./Home";
@@ -21,7 +21,15 @@ const App = () => {
 
 const Layout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { isAuthenticated } = useContext(AuthContext); // Access AuthContext here
+
+  // useEffect to redirect to /home if not authenticated
+  useEffect(() => {
+    if (!isAuthenticated && location.pathname !== "/login" && location.pathname !== "/register") {
+      navigate("/login"); // Redirect to login if not authenticated and not on login/register page
+    }
+  }, [isAuthenticated, location.pathname, navigate]);
 
   // Hide Navbar only on Login and Register pages
   const hideNavbar = location.pathname === "/login" || location.pathname === "/register";
